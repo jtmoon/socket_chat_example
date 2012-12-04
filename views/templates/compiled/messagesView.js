@@ -48,6 +48,21 @@ function program1(depth0,data) {
   if(typeof stack4 === functionType) { stack1 = stack4.call(depth0, stack2, tmp1); }
   else if(stack4=== undef) { stack1 = helperMissing.call(depth0, "view", stack2, tmp1); }
   else { stack1 = stack4; }
-  data.buffer.push(escapeExpression(stack1) + "\n      <button class=\"btn\">Send</button>\n    </div>\n  </div>\n</div>");
+  data.buffer.push(escapeExpression(stack1) + "\n      <button class=\"btn\" ");
+  stack1 = depth0;
+  stack2 = "sendMessage";
+  stack3 = {};
+  stack4 = "view";
+  stack3['target'] = stack4;
+  stack4 = helpers.action || depth0.action;
+  tmp1 = {};
+  tmp1.hash = stack3;
+  tmp1.contexts = [];
+  tmp1.contexts.push(stack1);
+  tmp1.data = data;
+  if(typeof stack4 === functionType) { stack1 = stack4.call(depth0, stack2, tmp1); }
+  else if(stack4=== undef) { stack1 = helperMissing.call(depth0, "action", stack2, tmp1); }
+  else { stack1 = stack4; }
+  data.buffer.push(escapeExpression(stack1) + ">Send</button>\n    </div>\n  </div>\n</div>");
   return buffer;
 });

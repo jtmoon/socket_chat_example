@@ -7,7 +7,7 @@
   <div class="navbar-inner">
     <div class="navbar-form pull-left">
       {{view view.messageInput placeholder="Message"}}
-      <button class="btn">Send</button>
+      <button class="btn" {{action sendMessage target="view"}}>Send</button>
     </div>
   </div>
 </div>

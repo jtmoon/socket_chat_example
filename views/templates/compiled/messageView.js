@@ -5,7 +5,7 @@ helpers = helpers || Ember.Handlebars.helpers;
 
   data.buffer.push("<div class=\"user_name\">\n  ");
   stack1 = depth0;
-  stack2 = "created_by";
+  stack2 = "created_by.user_name";
   stack3 = {};
   stack4 = "true";
   stack3['escaped'] = stack4;

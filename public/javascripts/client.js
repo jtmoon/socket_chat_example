@@ -34,15 +34,16 @@ Chat.messagesDataController = Em.ArrayProxy.create({
 Chat.usersDataController = Em.ArrayProxy.create({
   content                 : []
 , add                     : function(user) {
+    //Checks to see if user exists
     var exists = this.filterProperty('id', user.id).length
       , modelUser = Chat.User.create(user);
     if(exists === 0) {
-      console.log(modelUser);
       this.addObject(modelUser);
     }
     return modelUser;
   }
 , addMany                 : function(users) {
+    //Updates the controller with room's user list
     for(var x=0; x<users.length; x++) {
       this.add(users[x]);
     }
@@ -192,6 +193,7 @@ Chat.UserView = Em.View.extend({
 Chat.MessagesView = Em.View.extend({
   templateName            : 'messagesView'
 , classNames              : ['chat']
+, text                    : null
 , messageInput            : Em.TextField.extend({
     keyPress                : function(e) {
       if(e.which === 13) {
@@ -201,7 +203,13 @@ Chat.MessagesView = Em.View.extend({
         this.set('value', '');
       }
     }
+  , valueBinding          : 'this.parentView.text'
   })
+, sendMessage             : function() {
+    //Action for the send message button.
+    var text = this.get('text');
+    this.new(text);
+  }
 , new                     : function(text) {
     this.get('controller').new(text);
   }
