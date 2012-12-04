@@ -1,0 +1,64 @@
+.vertical-box() {
+  display:              -webkit-box;
+  -webkit-box-orient:   vertical;
+}
+
+.horizontal-box() {
+  display:              -webkit-box;
+  -webkit-box-orient:   horizontal;
+}
+
+html, body {
+  height:               100%;
+}
+
+body {
+  .vertical-box();
+  .container-fluid {
+    -webkit-box-flex:     1;
+    .vertical-box();
+    .app {
+      padding-top:          60px;
+      -webkit-box-flex:     1;
+      .horizontal-box();
+      .users, .chat {
+        .nav-list {
+          -webkit-box-flex:     1;
+          margin-bottom:        20px;
+          overflow-y:           scroll;
+        }
+      }
+      .users {
+        width:                300px;
+        .vertical-box();
+        .users-list {
+          -webkit-box-flex:       1;
+        }
+      }
+      .chat {
+        margin-left:            20px;
+        -webkit-box-flex:       1;
+        .vertical-box();
+        .chat-window {
+          -webkit-box-flex:       1;
+          li {
+            .horizontal-box();
+            padding:              0 10px;
+            margin-bottom:        10px;
+            &.me {
+              background-color:     darken(@grayLighter, 1%);
+              .border-radius(3px);
+            }
+            .user_name {
+              width:                200px;
+              color:                @grayLight;
+            }
+            .message {
+              -webkit-box-flex:     1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<ul class="nav nav-list well chat-window">
+  {{#each controller}}
+  {{view Chat.MessageView}}
+  {{/each}}
+</ul>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-form pull-left">
+      {{view view.messageInput placeholder="Message"}}
+      <button class="btn">Send</button>
+    </div>
+  </div>
+</div>

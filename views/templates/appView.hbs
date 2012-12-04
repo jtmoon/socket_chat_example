@@ -1,0 +1,28 @@
+{{#if Chat.currentUser.user}}
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      {{outlet rooms}}
+    </div>
+  </div>
+</div>
+<div class="app">
+  {{outlet users}}
+  {{outlet messages}}
+</div>
+{{else}}
+<div class="row-fluid user-input">
+  <div class="offset4 span4 offset4">
+    <legend>User Name</legend>
+    <label>Enter a user name to start chatting!</label>
+    {{view view.userNameInput placeholder="Ex. John Doe"}}
+    <div>
+      <button
+      {{bindAttr class=":btn view.isUser::disabled"}}
+      {{action setCurrentUser target="view"}}>
+        Enter Chat Room
+      </button>
+    </div>
+  </div>
+</div>
+{{/if}}
